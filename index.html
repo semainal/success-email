@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&family=Hanken+Grotesk:wght@500;700;800&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    
+    <title>Newsletter Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="desc">
+            <div class="descTitle">
+                Stay updated!
+            </div>
+
+            <p>Join 60,000+ product managers receiving monthly
+                <br>
+                updates on:
+            </p>
+
+            <ul>
+                <li><img src="./icon-list.svg" class="li" alt="">Product discovery and building what matters</li>
+                <li><img src="./icon-list.svg" class="li" alt="">Measuring to ensure updates are a success</li>
+                <li><img src="./icon-list.svg" class="li" alt="">And much more!</li>
+            </ul>
+
+            <div>
+                <label for="email">Email address </label>
+                <span class="error" id="email-error"></span>
+                <br>
+
+                <input type="email" id="email" name="email" value="email@company.com"> 
+               
+            </div>
+
+            <button class="submit" onclick="validateEmail()">Subscribe to monthly newsletter</button>
+        </div>
+        <div class="box">
+            <img class="boximg" src="./illustration-sign-up-desktop.svg" alt="">
+        </div>
+    </div>
+  
+    <script>
+        function validateEmail() {
+            const emailInput = document.getElementById("email");
+            const errorMessage = document.getElementById("email-error");
+
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            if (emailInput.value === "") {
+                errorMessage.textContent = "Valid email required"; 
+                emailInput.classList.add("error");
+            } else if (!emailPattern.test(emailInput.value)) {
+                errorMessage.textContent = "Valid email required"; 
+                emailInput.classList.add("error"); 
+            } else {
+                errorMessage.textContent = ""; 
+                emailInput.classList.remove("error");
+                window.location.href = "success.html";
+            }
+        }
+    </script>
+
+</body>
+</html>
